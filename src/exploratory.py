@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from pandas.api.types import (
-    is_any_real_numeric_dtype,
+    is_numeric_dtype,
     is_datetime64_any_dtype,
     is_dtype_equal,
     is_object_dtype,
@@ -101,7 +101,7 @@ class LTVexploratory:
         assert is_datetime64_any_dtype(
             self.data_events[self.event_time_col]
         ), f"The column [{self.event_time_col}] referencing to the time in the events dataset was expected to be of type [datetime]. But it is of type {self.data_events[self.event_time_col].dtype}"
-        assert is_any_real_numeric_dtype(
+        assert is_numeric_dtype(
             self.data_events[self.value_col]
         ), f"The column [{self.value_col}] referencing value of a transaction in the events dataset was expected to be of numeric. But it is of type {self.data_events[self.value_col].dtype}"
 
